@@ -113,7 +113,7 @@ import uuid
 import httpx
 
 @mcp.tool()
-async def run_cortex_agent(query: str) -> Dict[str, Any]:
+async def run_cortex_agents(query: str) -> Dict[str, Any]:
     """Run the Cortex agent with the given query, streaming SSE."""
     # Build your payload exactly as before
     payload = {

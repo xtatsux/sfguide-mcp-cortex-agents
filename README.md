@@ -103,7 +103,7 @@ Add your Cortex Agents server:
       "command": "uv",
       "args": [
         "--directory",
-        "/ABSOLUTE/PATH/TO/PARENT/FOLDER/sfguide-mcp-cortex-agent",
+        "/ABSOLUTE/PATH/TO/PARENT/FOLDER/sfguide-mcp-cortex-agents",
         "run",
         "cortex_agents.py"
       ]
@@ -120,4 +120,4 @@ Then, run a query. If the query calls your MCP server, you will see the name of 
 
 4. Customize your Cortex Agents.
 
-In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agent` to include more tools or different configurations (such as LLMs).
+In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agents` to include more tools or different configurations (such as LLMs).

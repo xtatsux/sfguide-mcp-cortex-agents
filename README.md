@@ -19,15 +19,11 @@ We’ll build a server that exposes one tool:
 
 Then we’ll connect the server to an MCP host (Claude for Desktop):
 
-![Cortex Agent tools in Claude for Desktop](path/to/your/screenshot.png)
-
 > **Note:** you can connect any MCP-compatible client, but this guide uses Claude for Desktop for simplicity. See the official MCP [client SDK guide](#) for building your own, or browse [other clients](https://modelcontextprotocol.io/clients).
-
-## Learn more about Cortex Agent
 
 ## Prerequisite knowledge
 
-- Cortex Agents set up ([quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_cortex_agents/index.html#0))
+- Cortex Analyst semantic model and Cortex Search service created, such as via this ([quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_cortex_agents/index.html#0))
 - Basic familiarity with LLMs
 
 ## System requirements
@@ -108,12 +104,8 @@ Add your Cortex Agent server:
 }
 ```
 
-You may need to replace "uv" with the full uv path. You can find the uv path by running `which uv`.
+> **Note:** You may need to replace "uv" with the full uv path. You can find the uv path by running `which uv`.
 
 Launch the Claude for Desktop app.
 
-Then, run a query.
-
-
-
-
+Then, run a query. If the query calls your MCP server, you will see the name of the tool used directly below your query in the Claude desktop app.

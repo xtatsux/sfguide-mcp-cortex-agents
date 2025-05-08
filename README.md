@@ -74,9 +74,17 @@ Set the keys and services needed to run Cortex Agent by filling `.env.template` 
 * SEMANTIC_MODEL_FILE
 * CORTEX_SEARCH_SERVICE
 
-2. Run the server
+## 2. Run the server
 
-3. (Optional) Use the Cortex Agent MCP Server in Claude Desktop:
+Run:
+
+```bash
+uv run cortex_agent.py
+```
+
+> **Note:** Leave this (the MCP server) running while you call it from the MCP client.
+
+## 3. (Optional) Use the Cortex Agent MCP Server in Claude Desktop:
 
 Install or update Claude for Desktop.
 

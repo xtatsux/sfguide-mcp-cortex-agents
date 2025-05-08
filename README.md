@@ -126,11 +126,11 @@ Because we're connected to Cortex Agents, we can ask questions about both unstru
 
 Unstructured data:
 
-![cortex agents mcp unstructured](./images/mcp_cortex_agents_unstructured.mov)
+![cortex agents mcp unstructured](./images/mcp_cortex_agents_unstructured.gif)
 
 Structured data:
 
-![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.mov)
+![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.gif)
 
 1. Customize your Cortex Agents.
 

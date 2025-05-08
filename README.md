@@ -9,6 +9,10 @@ The core functionalities include:
 
 In this tutorial, we’ll build a simple MCP **Cortex Agent** server and connect it to an MCP host (Claude for Desktop). We’ll start with a basic setup, then progress to more complex use cases.
 
+See it in action!
+
+![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.gif)
+
 ## What we’ll be building
 
 Many LLMs don’t natively orchestrate external “agent” workflows. With MCP, we can expose Cortex Agents capabilities as first-class tools in your chat client.

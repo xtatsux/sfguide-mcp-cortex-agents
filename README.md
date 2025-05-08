@@ -21,7 +21,7 @@ Then we’ll connect the server to an MCP host (Claude for Desktop):
 
 > **Note:** you can connect any MCP-compatible client, but this guide uses Claude for Desktop for simplicity. See the official MCP [client SDK guide](#) for building your own, or browse [other clients](https://modelcontextprotocol.io/clients).
 
-## Prerequisite knowledge
+## Prerequisites
 
 - Cortex Analyst semantic model and Cortex Search service created, such as via this ([quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_cortex_agents/index.html#0))
 - A [Programattic Access Token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) created
@@ -84,7 +84,7 @@ uv run cortex_agents.py
 
 > **Note:** Leave this (the MCP server) running while you call it from the MCP client.
 
-## 3. (Optional) Use the Cortex Agents MCP Server in Claude Desktop:
+## 3. (Optional) Use the Cortex Agents MCP Server in Claude Desktop
 
 Install or update Claude for Desktop.
 
@@ -132,6 +132,6 @@ Structured data:
 
 ![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.gif)
 
-1. Customize your Cortex Agents.
+## 4. Customize your Cortex Agents.
 
 In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agents` to include more tools or different configurations (such as LLMs).

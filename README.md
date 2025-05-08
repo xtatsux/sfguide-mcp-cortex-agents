@@ -67,7 +67,7 @@ source .venv/bin/activate   # macOS/Linux
 uv add "mcp[cli]" httpx
 ```
 
-Set the keys and services needed to run Cortex Agents by filling `.env.template` with:
+Set the keys and services needed to run Cortex Agents by creating a `.env` following the `.env.template` with:
 
 * SNOWFLAKE_ACCOUNT_URL
 * SNOWFLAKE_PAT

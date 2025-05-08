@@ -24,6 +24,7 @@ Then we’ll connect the server to an MCP host (Claude for Desktop):
 ## Prerequisite knowledge
 
 - Cortex Analyst semantic model and Cortex Search service created, such as via this ([quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_cortex_agents/index.html#0))
+- A [Programattic Access Token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) created
 - Basic familiarity with LLMs
 
 ## System requirements

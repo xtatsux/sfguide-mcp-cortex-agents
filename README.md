@@ -1,21 +1,21 @@
-# Build an MCP Server for Cortex Agent
+# Build an MCP Server for Cortex Agents
 
-This guide walks through how to build your own Cortex Agent MCP Server.
+This guide walks through how to build your own MCP Server for Cortex Agents.
 
 The core functionalities include:
 
-- Allow agents to interact with Cortex Agent as a tool
+- Allow agents to interact with Cortex Agents as a tool
 - Test the connection with Claude Desktop
 
 In this tutorial, we’ll build a simple MCP **Cortex Agent** server and connect it to an MCP host (Claude for Desktop). We’ll start with a basic setup, then progress to more complex use cases.
 
 ## What we’ll be building
 
-Many LLMs don’t natively orchestrate external “agent” workflows. With MCP, we can expose Cortex Agent capabilities as first-class tools in your chat client.
+Many LLMs don’t natively orchestrate external “agent” workflows. With MCP, we can expose Cortex Agents capabilities as first-class tools in your chat client.
 
 We’ll build a server that exposes one tool:
 
-- `cortex_agent`: submit a prompt to Cortex Agent and get its output  
+- `cortex_agent`: submit a query to Cortex Agents and get its output  
 
 Then we’ll connect the server to an MCP host (Claude for Desktop):
 
@@ -52,7 +52,7 @@ irm https://astral.sh/uv/install.ps1 | iex
 # restart your shell
 ```
 
-Configure and create your Cortex Agent project:
+Configure and create your Cortex Agents project:
 
 ```bash
 # Clone the repo
@@ -68,7 +68,7 @@ source .venv/bin/activate   # macOS/Linux
 uv add "mcp[cli]" httpx
 ```
 
-Set the keys and services needed to run Cortex Agent by filling `.env.template` with:
+Set the keys and services needed to run Cortex Agents by filling `.env.template` with:
 
 * SNOWFLAKE_ACCOUNT_URL
 * SNOWFLAKE_PAT
@@ -85,7 +85,7 @@ uv run cortex_agent.py
 
 > **Note:** Leave this (the MCP server) running while you call it from the MCP client.
 
-## 3. (Optional) Use the Cortex Agent MCP Server in Claude Desktop:
+## 3. (Optional) Use the Cortex Agents MCP Server in Claude Desktop:
 
 Install or update Claude for Desktop.
 
@@ -95,7 +95,7 @@ macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
 
 Windows: %APPDATA%\Claude\claude_desktop_config.json
 
-Add your Cortex Agent server:
+Add your Cortex Agents server:
 
 ```json
 {
@@ -118,3 +118,7 @@ Add your Cortex Agent server:
 Launch the Claude for Desktop app.
 
 Then, run a query. If the query calls your MCP server, you will see the name of the tool used directly below your query in the Claude desktop app.
+
+4. Customize your Cortex Agents.
+
+In `cortex_agent.py`, update the `payload` included in the function `run_cortex_agent` to include more tools or different configurations (such as LLMs).

@@ -21,7 +21,7 @@ Then we’ll connect the server to an MCP host (Claude for Desktop):
 
 > **Note:** you can connect any MCP-compatible client, but this guide uses Claude for Desktop for simplicity. See the official MCP [client SDK guide](#) for building your own, or browse [other clients](https://modelcontextprotocol.io/clients).
 
-## Prerequisite knowledge
+## Prerequisites
 
 - Cortex Analyst semantic model and Cortex Search service created, such as via this ([quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_cortex_agents/index.html#0))
 - A [Programattic Access Token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) created

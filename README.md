@@ -79,7 +79,7 @@ Set the keys and services needed to run Cortex Agents by filling `.env.template`
 Run:
 
 ```bash
-uv run cortex_agent.py
+uv run cortex_agents.py
 ```
 
 > **Note:** Leave this (the MCP server) running while you call it from the MCP client.
@@ -105,7 +105,7 @@ Add your Cortex Agents server:
         "--directory",
         "/ABSOLUTE/PATH/TO/PARENT/FOLDER/sfguide-mcp-cortex-agent",
         "run",
-        "cortex_agent.py"
+        "cortex_agents.py"
       ]
     }
   }
@@ -120,4 +120,4 @@ Then, run a query. If the query calls your MCP server, you will see the name of 
 
 4. Customize your Cortex Agents.
 
-In `cortex_agent.py`, update the `payload` included in the function `run_cortex_agent` to include more tools or different configurations (such as LLMs).
+In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agent` to include more tools or different configurations (such as LLMs).

@@ -15,7 +15,7 @@ Many LLMs don’t natively orchestrate external “agent” workflows. With MCP,
 
 We’ll build a server that exposes one tool:
 
-- `cortex_agent`: submit a query to Cortex Agents and get its output  
+- `cortex_agent_run`: submit a query to Cortex Agents and get its output  
 
 Then we’ll connect the server to an MCP host (Claude for Desktop):
 

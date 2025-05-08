@@ -116,8 +116,22 @@ Add your Cortex Agents server:
 
 Launch the Claude for Desktop app.
 
+Now our Cortex Agents MCP server is available for use by Claude. We can see it by clicking on the tools icon, and toggle it on and off.
+
+![mcp tool in claude](./images/cortex_agents_mcp_tool.png)
+
 Then, run a query. If the query calls your MCP server, you will see the name of the tool used directly below your query in the Claude desktop app.
 
-4. Customize your Cortex Agents.
+Because we're connected to Cortex Agents, we can ask questions about both unstructured data (via Cortex Search) and structured data via Cortex Analyst.
+
+Unstructured data:
+
+![cortex agents mcp unstructured](./images/mcp_cortex_agents_unstructured.mov)
+
+Structured data:
+
+![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.mov)
+
+1. Customize your Cortex Agents.
 
 In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agents` to include more tools or different configurations (such as LLMs).

@@ -84,7 +84,7 @@ uv run cortex_agents.py
 
 > **Note:** Leave this (the MCP server) running while you call it from the MCP client.
 
-## 3. (Optional) Use the Cortex Agents MCP Server in Claude Desktop:
+## 3. (Optional) Use the Cortex Agents MCP Server in Claude Desktop
 
 Install or update Claude for Desktop.
 
@@ -118,6 +118,6 @@ Launch the Claude for Desktop app.
 
 Then, run a query. If the query calls your MCP server, you will see the name of the tool used directly below your query in the Claude desktop app.
 
-4. Customize your Cortex Agents.
+## 4. (Optional) Customize your Cortex Agents
 
 In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agents` to include more tools or different configurations (such as LLMs).

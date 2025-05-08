@@ -132,6 +132,6 @@ Structured data:
 
 ![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.gif)
 
-## 4. Customize your Cortex Agents.
+## 4. Customize your Cortex Agents
 
 In `cortex_agents.py`, update the `payload` included in the function `run_cortex_agents` to include more tools or different configurations (such as LLMs).

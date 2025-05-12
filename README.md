@@ -9,11 +9,7 @@ The core functionalities include:
 - Allow agents to interact with Cortex Agents as a tool
 - Test the connection with Claude Desktop
 
-In this tutorial, we’ll build a simple MCP **Cortex Agent** server and connect it to an MCP host (Claude for Desktop). We’ll start with a basic setup, then progress to more complex use cases.
-
-See it in action!
-
-![cortex agents mcp unstructured](./images/mcp_cortex_agents_structured.gif)
+In this tutorial, we’ll build a simple MCP **Cortex Agent** server and connect it to an MCP host (Claude for Desktop).
 
 ## Step-by-Step Guide
 

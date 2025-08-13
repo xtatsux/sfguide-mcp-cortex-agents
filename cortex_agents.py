@@ -4,6 +4,7 @@ from mcp.server.fastmcp import FastMCP
 import os
 import json
 import uuid
+import re
 from dotenv import load_dotenv, find_dotenv
 import asyncio
 load_dotenv(find_dotenv())
@@ -38,6 +39,19 @@ API_HEADERS = {
     "X-Snowflake-Authorization-Token-Type": "PROGRAMMATIC_ACCESS_TOKEN",
     "Content-Type": "application/json",
 }
+
+def detect_japanese(text: str) -> bool:
+    """
+    Detect if text contains Japanese characters (Hiragana, Katakana, Kanji).
+    
+    Args:
+        text: Input text to check
+        
+    Returns:
+        True if Japanese characters are found, False otherwise
+    """
+    japanese_pattern = re.compile(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]')
+    return bool(japanese_pattern.search(text))
 
 async def process_sse_response(resp: httpx.Response) -> Tuple[str, str, List[Dict]]:
     """
@@ -81,8 +95,73 @@ async def process_sse_response(resp: httpx.Response) -> Tuple[str, str, List[Dic
     return text, "", citations
 
 @mcp.tool()
+async def get_search_guidance(user_query: str) -> Dict[str, str]:
+    """
+    Provide guidance for optimal Cortex Search usage, especially for non-English queries.
+    
+    This helper tool suggests how to optimize queries for better search results.
+    
+    Args:
+        user_query: The original user query in any language
+        
+    Returns:
+        Dict containing optimization suggestions and translation guidance
+    """
+    return {
+        "original_query": user_query,
+        "guidance": "For optimal search results with Cortex Search:",
+        "steps": [
+            "1. If the query is in Japanese or non-English, translate it to English first",
+            "2. Use specific technical terms and clear language",
+            "3. Focus on key concepts (e.g., 'security', 'performance', 'configuration')",
+            "4. Call run_cortex_search with the English version"
+        ],
+        "example": "Query: 'Snowflakeの動的テーブル' → Translate to: 'Snowflake Dynamic Tables' → Better results",
+        "note": "The MCP client (Claude) can automatically handle translation - just call run_cortex_search with English queries for best results"
+    }
+
+@mcp.tool()
 async def run_cortex_search(query: str) -> Dict[str, Any]:
-    """Run Cortex Search with the given query."""
+    """
+    Run Cortex Search to find information from Snowflake documentation.
+    
+    🚨 LANGUAGE REQUIREMENT: This tool ONLY accepts English queries.
+    
+    🔄 TRANSLATION PROTOCOL:
+    If you receive a Japanese query, you MUST:
+    1. Detect Japanese characters in the query
+    2. Translate the query to English using your language capabilities  
+    3. Call this tool again with the English translation
+    
+    ❌ Japanese queries will be REJECTED with translation instructions.
+    ✅ Only English queries will be processed for search.
+    
+    💡 WORKFLOW EXAMPLE:
+    - User asks: "Snowflakeのセキュリティについて教えて"
+    - First call: run_cortex_search("Snowflakeのセキュリティについて教えて") → TRANSLATION_REQUIRED
+    - You translate: "Tell me about Snowflake security"
+    - Second call: run_cortex_search("Tell me about Snowflake security") → Search results
+    - You respond: Provide comprehensive answer in Japanese
+    
+    Args:
+        query: Search query (MUST be in English)
+        
+    Returns:
+        Dict containing search results OR translation requirement
+    """
+    
+    # 日本語検出 - 日本語が含まれている場合は翻訳を要求
+    if detect_japanese(query):
+        return {
+            "status": "TRANSLATION_REQUIRED",
+            "error": "Japanese query detected - English translation required",
+            "original_query": query,
+            "instruction": "Please translate this Japanese query to English and call run_cortex_search again with the English version.",
+            "example": f"Original: '{query}' → Translate to English → Call run_cortex_search('English translation')",
+            "note": "This tool only processes English queries for optimal search results."
+        }
+    
+    # 英語クエリの場合のみ検索実行
     # Reload environment variables dynamically
     env_vars = get_env_vars()
     
